@@ -5,6 +5,16 @@ puts "----------"
 
 class Store < ActiveRecord::Base
   has_many :employees
+
+  validates :name, length: {minimum: 3}
+  validates :annual_revenue, length: {minimum: 0}
+            :has_apparel
+
+  def has_apparel
+    if :mens_apparel || :womens_apparel
+      true
+    end
+  end
 end
 
 Store.create(name: "Burnaby",
